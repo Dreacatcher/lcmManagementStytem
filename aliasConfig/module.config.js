@@ -2,13 +2,14 @@
 * @Author: lcm
 * @Date:   2017-04-17 18:01:21
  * @Last Modified by: lucm
- * @Last Modified time: 2017-12-12 11:58:12
+ * @Last Modified time: 2017-12-12 16:19:11
 */
 
 'use strict'
 var path = require('path')
 var srcDir = path.resolve(process.cwd(), 'src')
-var business = require('./_include/business')
+var components = require('./_include/components')
+var home = require('./_include/home')
 
 var base = {
   // lib
@@ -36,7 +37,8 @@ var base = {
   'assets': path.resolve(__dirname, '../src/assets')
 }
 var newConfig = Object.assign(base,
-  business
+  components,
+  home
 );
 module.exports = newConfig
 
