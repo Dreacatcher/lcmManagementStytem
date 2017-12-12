@@ -28,9 +28,7 @@ export default {
   created() {
     this.gdData = Storage.get('businessListGdData')
   },
-  methods: {
-
-  },
+  methods: {},
   mounted() {
     document.title = '股东信息'
   }

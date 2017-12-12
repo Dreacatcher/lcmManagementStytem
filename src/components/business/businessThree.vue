@@ -110,7 +110,11 @@ export default {
         if (val.code === 200 && val.message === 'OK') {
           if (val.qyxx.length === 0) {
             Indicator.close()
-            Toast({ message: '未能查到该企业股东信息', className: 'willySize', duration: 3000 })
+            Toast({
+              message: '未能查到该企业股东信息',
+              className: 'willySize',
+              duration: 3000
+            })
           } else {
             Indicator.close()
             Storage.set('businessListGdData', val.qyxx, 40000000)
@@ -118,11 +122,20 @@ export default {
           }
         } else {
           Indicator.close()
-          Toast({ message: '网络错误，请重新查询', className: 'willySize', duration: 3000 })
+          Toast({
+            message: '网络错误，请重新查询',
+            className: 'willySize',
+            duration: 3000
+          })
         }
       } else {
         Indicator.close()
-        Toast({ message: '网络错误，请重新查询', position: 'middle', className: 'willySize', duration: 2000 })
+        Toast({
+          message: '网络错误，请重新查询',
+          position: 'middle',
+          className: 'willySize',
+          duration: 2000
+        })
       }
     }
   },

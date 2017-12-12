@@ -2,7 +2,7 @@
  * @Author: lucm
  * @Date: 2017-11-29 14:19:35
  * @Last Modified by: lucm
- * @Last Modified time: 2017-12-12 11:46:20
+ * @Last Modified time: 2017-12-12 12:00:45
  */
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -12,8 +12,8 @@ Vue.use(Router)
 let newArr = [
   {
     path: '/',
-    name: 'Holle',
-    component: Holle
+    name: 'business',
+    component: business
   }
 ]
 let newRouter = [

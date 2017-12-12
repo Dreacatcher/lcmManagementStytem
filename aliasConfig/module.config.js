@@ -2,7 +2,7 @@
 * @Author: lcm
 * @Date:   2017-04-17 18:01:21
  * @Last Modified by: lucm
- * @Last Modified time: 2017-12-12 11:46:59
+ * @Last Modified time: 2017-12-12 11:58:12
 */
 
 'use strict'
@@ -25,6 +25,11 @@ var base = {
   placeholder: srcDir + '/tools/jquery.placeholder.min',
   user: srcDir + '/tools/user',
 
+  // --------------------------------通用组件------------------------------------//
+   btnVue: srcDir + '/components/ui/btn/btn',
+
+
+   // --------------------------------通用组件------------------------------------//
   'vue$': 'vue/dist/vue.esm.js',
   '@': path.resolve('src'),
   'src': path.resolve(__dirname, '../src'),

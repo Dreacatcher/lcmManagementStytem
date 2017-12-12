@@ -52,7 +52,7 @@ export default {
     },
     businessData: function(val, oldVal) {
       if (val != null) {
-        if (val.qyxx != '' && val.code === 200 && val.message === 'OK') {
+        if (val.qyxx !== '' && val.code === 200 && val.message === 'OK') {
           Indicator.close()
           this.submissionBlock = false
 
@@ -60,23 +60,34 @@ export default {
           router.push(`/businessTwo/`)
         } else if (val.code === 201) {
           Indicator.close()
-          Toast({ message: '没有查询到该企业的基本信息', className: 'willySize', duration: 3000 })
+          Toast({
+            message: '没有查询到该企业的基本信息',
+            className: 'willySize',
+            duration: 3000
+          })
           this.submissionBlock = false
         } else {
           Indicator.close()
-          Toast({ message: '网络错误，请重新查询', className: 'willySize', duration: 3000 })
+          Toast({
+            message: '网络错误，请重新查询',
+            className: 'willySize',
+            duration: 3000
+          })
           this.submissionBlock = false
         }
       } else {
         Indicator.close()
-        Toast({ message: '网络错误，请重新查询', position: 'middle', className: 'willySize', duration: 2000 })
+        Toast({
+          message: '网络错误，请重新查询',
+          position: 'middle',
+          className: 'willySize',
+          duration: 2000
+        })
         this.submissionBlock = false
       }
     }
   },
-  created() {
-
-  },
+  created() {},
   methods: {
     btnNext() {
       if (this.userIdNumberFn() === true) {
@@ -168,7 +179,7 @@ export default {
         font-size: px2rem(28);
         color: $btnHover;
         &:after {
-          content: "\e91a";
+          content: '\e91a';
         }
       }
       .accInt {
@@ -196,7 +207,7 @@ export default {
   .mint-spinner-snake {
     width: px2rem(32) !important;
     height: px2rem(32) !important;
-    border: px2rem(4) solid transparent
+    border: px2rem(4) solid transparent;
   }
   .mint-indicator-text {
     font-size: px2rem(16) !important;

@@ -27,8 +27,7 @@ export default {
       router.push(`/businessThree/`)
     }
   },
-  watch: {
-  },
+  watch: {},
   created() {
     let info = Storage.get('businessListData')
     this.sublists = []
