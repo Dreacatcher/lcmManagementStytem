@@ -7,10 +7,8 @@
 
 <script type="text/ecmascript-6">
 import HolleJs from './controllers/holle'
-import MainHeader from 'appHeadVue'
 export default {
-  ...HolleJs,
-  components: {MainHeader}
+  ...HolleJs
 }
 
 </script>

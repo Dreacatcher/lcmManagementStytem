@@ -97,19 +97,19 @@ export default {
           subitems: [
             {
               name: '数据服务子菜单11',
-              index: '数据服务子菜单11'
+              index: 'hello'
             },
             {
               name: '数据服务子菜单12',
-              index: '数据服务子菜单12'
+              index: 'hello'
             },
             {
               name: '数据服务子菜单13',
-              index: '数据服务子菜单13'
+              index: 'hello'
             },
             {
               name: '数据服务子菜单14',
-              index: '数据服务子菜单14'
+              index: 'hello'
             }
           ]
         },
