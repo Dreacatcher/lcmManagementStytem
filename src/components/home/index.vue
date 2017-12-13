@@ -8,31 +8,43 @@
 						<router-link to="/"><img src="./img/ljy-logo-0925.png"></router-link>
 					</div>
 					<div class="htext">
-						<router-link to="/"><span>门户内容管理</span></router-link>
+						<router-link to="/"><span>用户工作台</span></router-link>
 					</div>
 				</el-col>
 				<el-col :span="14">
-					<el-menu default-active="6" mode="horizontal" @select="collapse" class="mainbav" theme="dark">
-							<el-submenu index="1">
-							<template slot="title">用户</template>
-							<el-menu-item index="3-1">基本资料</el-menu-item>
-							<el-menu-item index="3-2">安全设置</el-menu-item>
-							<el-menu-item index="3-3" divided @click.native="logout">退出登录</el-menu-item>
-						</el-submenu>
-            <el-submenu index="2">
-							<template slot="title">社区</template>
-							<el-menu-item index="2-1">我的主页</el-menu-item>
-							<el-menu-item index="2-2">我的帖子</el-menu-item>
-							<el-menu-item index="2-3">我的分享</el-menu-item>
-						</el-submenu>
-            <el-submenu index="3">
-							<template slot="title"><i class="el-icon-message"></i></template>
-							<el-menu-item index="1-1">我的消息</el-menu-item>
-							<el-menu-item index="1-2">系统消息</el-menu-item>
-						</el-submenu>
-					
-					
-					</el-menu>
+          <section class="barNav"> 
+            <el-dropdown @command="handleCommand">
+              <span class="el-dropdown-link">
+                用户<i class="el-icon-arrow-down el-icon--right"></i>
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item  command="a1">基本资料</el-dropdown-item>
+                <el-dropdown-item  command="b1">安全设置</el-dropdown-item>
+                <el-dropdown-item  command="c1"  @click.native="logout">退出登录</el-dropdown-item>
+                <!-- <el-dropdown-item disabled  command="d1">双皮奶</el-dropdown-item>
+                <el-dropdown-item divided  command="e1">蚵仔煎</el-dropdown-item> -->
+              </el-dropdown-menu>
+            </el-dropdown>
+            <el-dropdown @command="handleCommand">
+              <span class="el-dropdown-link">
+                社区<i class="el-icon-arrow-down el-icon--right"></i>
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item  command="a2">我的主页</el-dropdown-item>
+                <el-dropdown-item  command="b2">我的帖子</el-dropdown-item>
+                <el-dropdown-item  command="c2">我的分享</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+             <el-dropdown @command="handleCommand">
+              <span class="el-dropdown-link">
+                <i class="el-icon-message"></i><i class="el-icon-arrow-down el-icon--right"></i>
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item  command="a3">我的消息</el-dropdown-item>
+                <el-dropdown-item  command="b3">系统消息</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </section>
 				</el-col>
 			</el-col>
 			<!--主内容区-->
@@ -45,17 +57,14 @@
 						<i class="icon-sort-amount-desc" v-show="collapsed" ></i>
 					</div>
 					<!--导航菜单-->
-					<el-menu default-active="0" router :collapse="collapsed" theme="dark" class="el-menu-vertical-demo">
-						<template v-for="(item,index) in $router.options.routes" v-if="item.menuShow">
-							<el-submenu v-if="!item.leaf" :index="index+''" v-bind:key="index">
+          <el-menu default-active="0"  @open="handleOpen" router :collapse="collapsed" theme="dark" class="el-menu-vertical-demo">
+						<template v-for="(item,index) in leftNav" >
+							<el-submenu :index="index+''" :data-index='index' :key="index">
 								<template slot="title"><i :class="item.iconCls"></i><span slot="title">{{item.name}}</span></template>
-								<el-menu-item v-for="term in item.children" :key="term.path" :index="term.path" v-if="term.menuShow" :class="$route.path==term.path?'is-active':''">
-									<i :class="term.iconCls"></i><span slot="title">{{term.name}}</span>
+								<el-menu-item v-for="(subitem,_index) in item.subitems" :key="_index" :index="subitem.index+''">
+									<span slot="title">{{subitem.name}}</span>
 								</el-menu-item>
 							</el-submenu>
-							<el-menu-item  v-bind:key="index" v-else-if="item.leaf&&item.children&&item.children.length" :index="item.children[0].path" :class="$route.path==item.children[0].path?'is-active':''">
-								<i :class="item.iconCls"></i><span slot="title">{{item.children[0].name}}</span>
-							</el-menu-item>
 						</template>
 					</el-menu>
 				</aside>
@@ -80,10 +89,82 @@ export default {
   data: function() {
     return {
       collapsed: false,
-      sysUserName: ''
+      sysUserName: 'icon-floppy-disk',
+      leftNav: [
+        {
+          name: '数据服务11',
+          iconCls: 'icon-floppy-disk',
+          subitems: [
+            {
+              name: '数据服务子菜单11',
+              index: '数据服务子菜单11'
+            },
+            {
+              name: '数据服务子菜单12',
+              index: '数据服务子菜单12'
+            },
+            {
+              name: '数据服务子菜单13',
+              index: '数据服务子菜单13'
+            },
+            {
+              name: '数据服务子菜单14',
+              index: '数据服务子菜单14'
+            }
+          ]
+        },
+        {
+          name: '数据服务22',
+          iconCls: 'icon-floppy-disk',
+          subitems: [
+            {
+              name: '数据服务子菜单211',
+              index: '数据服务子菜单211'
+            },
+            {
+              name: '数据服务子菜单212',
+              index: '数据服务子菜单212'
+            },
+            {
+              name: '数据服务子菜单213',
+              index: '数据服务子菜单213'
+            },
+            {
+              name: '数据服务子菜单214',
+              index: '数据服务子菜单214'
+            }
+          ]
+        },
+        {
+          name: '数据服务333',
+          iconCls: 'icon-floppy-disk',
+          subitems: [
+            {
+              name: '数据服务子菜单311',
+              index: '数据服务子菜单311'
+            },
+            {
+              name: '数据服务子菜单312',
+              index: '数据服务子菜单312'
+            },
+            {
+              name: '数据服务子菜单313',
+              index: '数据服务子菜单313'
+            },
+            {
+              name: '数据服务子菜单314',
+              index: '数据服务子菜单314'
+            }
+          ]
+        }
+      ]
     }
   },
   methods: {
+    // 触发导航右侧内容
+    handleCommand(command) {
+      this.$message('click on item ' + command)
+    },
     // 折叠导航栏
     collapse: function() {
       this.collapsed = !this.collapsed
@@ -111,11 +192,15 @@ export default {
         .catch(() => {})
     },
     handleOpen(key, keyPath) {
+      console.log(key)
       console.log(key, keyPath)
     },
     handleClose(key, keyPath) {
       console.log(key, keyPath)
     }
+  },
+  created() {
+    console.log(this.leftNav)
   },
   mounted() {
     var user = sessionStorage.getItem('usernkname')
@@ -149,22 +234,19 @@ export default {
     bottom: 0px;
     overflow: hidden;
   }
-
-  // 导航右侧
-  .mainbav {
-    clear: both;
-  }
-  .el-menu--horizontal>.el-menu-item.is-active, .el-menu--horizontal>.el-submenu.is-active .el-submenu__title {
-    color: $deepGreen !important;
-  }
-  .mainbav:first-child {
-    clear: both;
-    .el-submenu > .el-menu {
-      right: 0px !important;
-    }
-  }
-  .el-menu--horizontal .el-submenu {
+  // 导航右侧内容
+  .barNav {
     float: right;
+  }
+  .el-dropdown {
+    padding-right: 25px;
+  }
+  .el-dropdown-link {
+    cursor: pointer;
+    color: $white;
+  }
+  .el-icon-arrow-down {
+    font-size: 12px;
   }
   /*左导航*/
   aside {
@@ -174,8 +256,38 @@ export default {
   }
   .el-menu {
     background: $middletBlack;
-    height: 60px;
-    line-height: 60px;
+    height: auto;
+  }
+  .el-submenu {
+    color: $white;
+    .el-submenu__title {
+      width: auto;
+      i,span {
+        color: $white;
+      }
+      span {
+        padding: 0 10px 0 10px;
+      }
+    }
+    .el-menu-item {
+      padding: 0 0px !important;
+      span {
+        padding: 0 10px 0 10px;
+      }
+    }
+    &:hover {
+      background: $green;
+    }
+    .el-submenu__title:hover {
+      background: $green;
+    }
+  }
+  .el-menu-item {
+    color: $white;
+  }
+  .el-menu-item:hover {
+    color: $white;
+    background: $selectColor;
   }
   .showSidebar {
     overflow-x: hidden;
