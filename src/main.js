@@ -2,7 +2,7 @@
  * @Author: lucm
  * @Date: 2017-06-05 17:21:49
  * @Last Modified by: lucm
- * @Last Modified time: 2017-12-12 16:14:34
+ * @Last Modified time: 2017-12-13 17:46:22
  */
 
 // The Vue build version to load with the `import` command
@@ -15,6 +15,18 @@ import router from './router'
 import store from './store'
 Vue.config.productionTip = false
 Vue.use(Element)
+
+router.beforeEach((to, from, next) => {
+  if (to.path === '/login') {
+    sessionStorage.removeItem('access-user')
+  }
+  let usernkname = JSON.parse(sessionStorage.getItem('access-user'))
+  if (!usernkname && to.path !== '/login') {
+    next({ path: '/login' })
+  } else {
+    next()
+  }
+})
 
 /* eslint-disable no-new */
 window.vue = new Vue({

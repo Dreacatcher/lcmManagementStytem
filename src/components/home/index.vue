@@ -262,7 +262,8 @@ export default {
     color: $white;
     .el-submenu__title {
       width: auto;
-      i,span {
+      i,
+      span {
         color: $white;
       }
       span {
@@ -295,26 +296,26 @@ export default {
   }
   /*折叠开关*/
   .menu-toggle {
-    background: #4a5064;
+    background: $selectColor;
     text-align: center;
-    color: white;
+    color: $white;
     height: 35px;
     line-height: 35px;
   }
   .menu-toggle i:hover {
-    color: #20a0ff;
+    color: $color20a0ff;
     cursor: pointer;
   }
   /*右内容区*/
   .content-container {
-    background: #fff;
+    background: $white;
     flex: 1;
     overflow-y: auto;
     padding: 20px;
     padding-bottom: 1px;
   }
   .content-wrapper {
-    background-color: #fff;
+    background-color: $white;
     box-sizing: border-box;
   }
   .htext {
@@ -323,14 +324,14 @@ export default {
     text-align: center;
     line-height: 60px;
     height: 60px;
-    border-right: 1px solid #2a2f32;
+    border-right: 1px solid $deeptBlack;
     cursor: pointer;
   }
   .htext a {
-    color: white;
+    color: $white;
   }
   .htext:hover {
-    background: #2a2f32;
+    background: $deeptBlack;
   }
   /*头部LOGO样式*/
   .logo {
@@ -338,11 +339,11 @@ export default {
     height: 60px;
     text-align: center;
     line-height: 60px;
-    border-right: 1px solid #2a2f32;
+    border-right: 1px solid $deeptBlack;
     cursor: pointer;
   }
   .logo:hover {
-    background: #2a2f32;
+    background: $deeptBlack;
   }
   .logo img {
     width: 25px;
@@ -362,7 +363,7 @@ export default {
     text-align: center;
   }
   .dropdown:hover {
-    background: #2a2f32;
+    background: $deeptBlack;
   }
   .news {
     float: right;
@@ -370,14 +371,19 @@ export default {
     line-height: 60px;
     width: 100px;
     text-align: center;
-    border-right: 1px solid #2a2f32;
+    border-right: 1px solid $deeptBlack;
   }
   .news:hover {
-    background: #2a2f32;
+    background: $deeptBlack;
   }
   /* 小角标 */
   .item {
     box-sizing: border-box;
+  }
+  ::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background-color: $selectColor;
   }
 }
 </style>
