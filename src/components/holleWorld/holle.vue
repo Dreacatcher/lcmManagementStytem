@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <MainHeader v-on:goToDetail="goToDetail"></MainHeader>
     <h2>基于vue+webpack的单页面开发-----主页</h2>
   </div>
 </template>
