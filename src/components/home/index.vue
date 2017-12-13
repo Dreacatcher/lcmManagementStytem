@@ -13,23 +13,25 @@
 				</el-col>
 				<el-col :span="14">
 					<el-menu default-active="6" mode="horizontal" @select="collapse" class="mainbav" theme="dark">
-						<el-submenu index="1">
-							<template slot="title"><i class="el-icon-message"></i></template>
-							<el-menu-item index="1-1">我的消息</el-menu-item>
-							<el-menu-item index="1-2">系统消息</el-menu-item>
-						</el-submenu>
-						<el-submenu index="2">
-							<template slot="title">社区</template>
-							<el-menu-item index="2-1">我的主页</el-menu-item>
-							<el-menu-item index="2-2">我的帖子</el-menu-item>
-							<el-menu-item index="2-3">我的分享</el-menu-item>
-						</el-submenu>
-						<el-submenu index="3">
+							<el-submenu index="1">
 							<template slot="title">用户</template>
 							<el-menu-item index="3-1">基本资料</el-menu-item>
 							<el-menu-item index="3-2">安全设置</el-menu-item>
 							<el-menu-item index="3-3" divided @click.native="logout">退出登录</el-menu-item>
 						</el-submenu>
+            <el-submenu index="2">
+							<template slot="title">社区</template>
+							<el-menu-item index="2-1">我的主页</el-menu-item>
+							<el-menu-item index="2-2">我的帖子</el-menu-item>
+							<el-menu-item index="2-3">我的分享</el-menu-item>
+						</el-submenu>
+            <el-submenu index="3">
+							<template slot="title"><i class="el-icon-message"></i></template>
+							<el-menu-item index="1-1">我的消息</el-menu-item>
+							<el-menu-item index="1-2">系统消息</el-menu-item>
+						</el-submenu>
+					
+					
 					</el-menu>
 				</el-col>
 			</el-col>
@@ -147,6 +149,23 @@ export default {
     bottom: 0px;
     overflow: hidden;
   }
+
+  // 导航右侧
+  .mainbav {
+    clear: both;
+  }
+  .el-menu--horizontal>.el-menu-item.is-active, .el-menu--horizontal>.el-submenu.is-active .el-submenu__title {
+    color: $deepGreen !important;
+  }
+  .mainbav:first-child {
+    clear: both;
+    .el-submenu > .el-menu {
+      right: 0px !important;
+    }
+  }
+  .el-menu--horizontal .el-submenu {
+    float: right;
+  }
   /*左导航*/
   aside {
     min-width: 50px;
@@ -249,5 +268,4 @@ export default {
     box-sizing: border-box;
   }
 }
-
 </style>
