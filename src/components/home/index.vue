@@ -57,7 +57,7 @@
 						<i class="icon-sort-amount-desc" v-show="collapsed" ></i>
 					</div>
 					<!--导航菜单-->
-          <el-menu default-active="0"  @open="handleOpen" router :collapse="collapsed" theme="dark" class="el-menu-vertical-demo">
+          <el-menu default-active="0"  router :collapse="collapsed" theme="dark" class="el-menu-vertical-demo">
 						<template v-for="(item,index) in leftNav" >
 							<el-submenu :index="index+''" :data-index='index' :key="index">
 								<template slot="title"><i :class="item.iconCls"></i><span slot="title">{{item.name}}</span></template>
@@ -156,6 +156,24 @@ export default {
               index: '数据服务子菜单314'
             }
           ]
+        },
+        {
+          name: '个人中心',
+          iconCls: 'icon-floppy-disk',
+          subitems: [
+            {
+              name: '编辑个人信息',
+              index: 'pubMyInfo'
+            },
+            {
+              name: '发表文章',
+              index: 'pubArticle'
+            },
+            {
+              name: '文章列表',
+              index: 'queryArticle'
+            }
+          ]
         }
       ]
     }
@@ -217,8 +235,10 @@ export default {
 .homeContainer {
   position: absolute !important;
   top: 0px;
+  background-color: $mainBgb;
   bottom: 0px;
   width: 100%;
+
   /*头部*/
   .topbar-wrap {
     height: 60px;
@@ -252,6 +272,7 @@ export default {
   aside {
     min-width: 50px;
     text-align: center;
+    overflow-y: scroll;
     background: $middletBlack;
   }
   .el-menu {
@@ -277,10 +298,10 @@ export default {
       }
     }
     &:hover {
-      background: $green;
+      background: $color0c2de;
     }
     .el-submenu__title:hover {
-      background: $green;
+      background: $color0c2de;
     }
   }
   .el-menu-item {
@@ -303,19 +324,19 @@ export default {
     line-height: 35px;
   }
   .menu-toggle i:hover {
-    color: $color20a0ff;
+    color: $btnForbid;
     cursor: pointer;
   }
   /*右内容区*/
   .content-container {
-    background: $white;
     flex: 1;
-    overflow-y: auto;
+    overflow-y: scroll;
     padding: 20px;
     padding-bottom: 1px;
   }
   .content-wrapper {
     background-color: $white;
+    padding: 20px;
     box-sizing: border-box;
   }
   .htext {

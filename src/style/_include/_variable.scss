@@ -22,16 +22,22 @@ $activeColor:#4a5064;
 $lintsblue:#aaa3b6;
 $colorF5F5F5:#F5F5F5;
 $mainBdc: #d8d8d8;
-$mainBgc: #ccc7c7;
+$mainBgc: #f5f4f4;
+$colorb2b2: #b2b2b2;
 
 $blue:#5c74e2;
 $deepblue:#270055;
 $lintblue:#4d66d9;
 
-$green:green;
+$green:rgb(1, 250, 1);
+$deepgreen:green;
+$lingtgreen:rgb(52, 248, 52);
+$sublingtgreen:rgb(71, 247, 71);
+
 $deepblueGreen: #20b6b9;
 $lingtbluegreen:#0CD19C;
 $blueGreen55fafa: #55fafa;
+$color0c2de:#00c2de;
 
 $red: red;
 $deepred: rgb(197, 7, 7);
@@ -45,7 +51,6 @@ $purple: #7f1f59;
 $deepPurple: #490333;
 $lightPurple: #b46299;
 
-
 // 页面颜色
 // 选择颜色
 $selectColor:$activeColor;
@@ -53,25 +58,16 @@ $selectColor:$activeColor;
 /*****字体颜色*********/
 $fontColor: $black;
 
-
-
-
-
 /*****按钮颜色*********/
 // btn颜色
-$btnActive: #b2b2b2;
-$btnHover: #b2b2b2;
-$btnClear: #ccc;
-
+$btnActive: $lingtgreen;
+$btnForbid: $colorb2b2;
+$btnHover: $sublingtgreen;
+$btnClear:$colorb2b2;
 /*****主边框色*********/
-$mainBgc: #ccc7c7;
+$mainBgb: $mainBgc;
 
 /*****背景色***********/
 // 主背景色
-
-
+$mainBgc: $mainBgc;
 // foot模块配色
-$mfootBgc: #e6e6e6;
-$mfootBdc: #e6e6e6;
-$mfootColor:#e6e6e6;
-$topCueBg:#ddf1f2;

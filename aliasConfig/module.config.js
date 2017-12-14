@@ -2,7 +2,7 @@
 * @Author: lcm
 * @Date:   2017-04-17 18:01:21
  * @Last Modified by: lucm
- * @Last Modified time: 2017-12-13 15:24:05
+ * @Last Modified time: 2017-12-14 16:06:04
 */
 
 'use strict'
@@ -11,6 +11,7 @@ var srcDir = path.resolve(process.cwd(), 'src')
 var components = require('./_include/components')
 var home = require('./_include/home')
 var demo = require('./_include/demo')
+var article = require('./_include/article')
 
 var base = {
   // lib
@@ -40,7 +41,8 @@ var base = {
 var newConfig = Object.assign(base,
   components,
   home,
-  demo
+  demo,
+  article
 );
 module.exports = newConfig
 
