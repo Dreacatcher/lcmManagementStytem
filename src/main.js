@@ -2,7 +2,7 @@
  * @Author: lucm
  * @Date: 2017-06-05 17:21:49
  * @Last Modified by: lucm
- * @Last Modified time: 2017-12-13 17:58:44
+ * @Last Modified time: 2017-12-13 18:00:34
  */
 
 // The Vue build version to load with the `import` command
@@ -22,7 +22,7 @@ Vue.use(Element)
 //   }
 //   let usernkname = JSON.parse(sessionStorage.getItem('access-user'))
 //   if (!usernkname && to.path !== '/login') {
-//     next({ path: '/login' })
+//     next({  path: '/login' })
 //   } else {
 //     next()
 //   }
