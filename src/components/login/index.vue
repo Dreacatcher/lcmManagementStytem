@@ -12,12 +12,15 @@
         <el-form-item style="width:100%;">
           <el-button type="primary" style="width:100%;" @click.native.prevent="handleLogin" :loading="loading">登录</el-button>
         </el-form-item>
+        <el-form-item style="width:100%;">
+          <el-button type="primary" style="width:100%;" @click.native.prevent="handleRegist" :loading="loading">注册</el-button>
+        </el-form-item>
     </el-form>
   </section>
 </template>
 
 <script>
-import { userlogin } from '../../api/user'
+import { userlogin, userregist } from '../../api/user'
 export default {
   data() {
     return {
@@ -50,6 +53,32 @@ export default {
             passwd: _self.account.passwd
           }
           userlogin(para, res => {
+            debugger
+            let cod = res.status
+            _self.loading = false
+            if (cod !== 200) {
+              if (res.data && res.data.message) {
+                _self.$message.error(res.data.message)
+                return false
+              }
+            } else {
+              sessionStorage.setItem('access-user', JSON.stringify(res.data))
+              _self.$router.push({ path: '/' })
+            }
+          })
+        }
+      })
+    },
+    handleRegist() {
+      let _self = this
+      _self.$refs.AccountFrom.validate(valid => {
+        if (valid) {
+          _self.loading = true
+          let para = {
+            userName: _self.account.userName,
+            passwd: _self.account.passwd
+          }
+          userregist(para, res => {
             let cod = res.status
             _self.loading = false
             if (cod !== 200) {
