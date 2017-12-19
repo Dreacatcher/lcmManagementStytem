@@ -2,25 +2,28 @@
 * @Author: lcm
 * @Date:   2017-05-27 14:36:08
  * @Last Modified by: lucm
- * @Last Modified time: 2017-12-12 16:28:10
+ * @Last Modified time: 2017-12-19 16:49:45
 */
 import axios from 'axios'
 import B from 'base'
-
+var Base64 = require('js-base64').Base64;
 // ******************************* Setting ***********************************/
-let appid = 'BAS5-cxzxc-0001'
-let appkey = 'cxzczcxzxc'
-let siteid = 'cxzcxzcxzcxzcx'
+let appid = Base64.encode('BASMD5-LCM-520-LYL')
+let appkey = 'vws3236ce4fdscsfdsecdserr3232fdsf30d835243czxc4fds'
+let siteid = '520100'
 // ******************************* Setting ***********************************/
 class Fetch {
   packageParamBase (param) {
     let _param = param || {}
+    let crypto = require('crypto');
+    let md5 = crypto.createHash('md5');
+    let _sign = md5.update(encodeURI((Buffer(JSON.stringify(_param) + appid)) + siteid) + appkey).digest('hex');
     let _requestParam = {
       head: {
         appid: appid,
-        sign: B.encrypt(appkey, B.toMd5(B.toBase64(appid + B.toJson(_param)))),
+        sign: _sign,
         siteid: siteid,
-        version: '2.0'
+        version: '1.0'
       },
       body: param
     }

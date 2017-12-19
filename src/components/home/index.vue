@@ -84,6 +84,7 @@
 </template>
 
 <script>
+import Fetch from 'fetch'
 export default {
   name: 'app',
   data: function() {
@@ -197,6 +198,13 @@ export default {
       var _this = this
       _this.$router.push('/Basic_information')
     },
+    // getData
+    getData: function() {
+      var _parma = {}
+      Fetch.httpRequestPostHasUTF8('http://localhost:3000/api/users/users0002', _parma, function(responseData) {
+        console.log(responseData)
+      })
+    },
     // 退出登录
     logout: function() {
       var _this = this
@@ -219,6 +227,7 @@ export default {
   },
   created() {
     console.log(this.leftNav)
+    this.getData()
   },
   mounted() {
     var user = sessionStorage.getItem('usernkname')
